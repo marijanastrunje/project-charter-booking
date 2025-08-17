@@ -4,7 +4,7 @@
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2070&q=80')
       center/cover no-repeat;
-  background-attachment: fixed;
+  /* Uklanjamo background-attachment: fixed za mobile */
 }
 
 .about-subtitle {
@@ -27,18 +27,16 @@
 
 /* SERVICES - Prozirna pozadina s istom slikom */
 .services-section {
-  /* Koristi istu sliku kao hero sekcija */
   background:
     linear-gradient(rgba(5, 3, 61, 0.85), rgba(5, 3, 61, 0.85)),
     url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2070&q=80')
       center/cover no-repeat;
-  background-attachment: fixed;
+  /* Uklanjamo background-attachment: fixed za mobile */
   color: #fff;
   padding: 3rem 0;
   position: relative;
 }
 
-/* Dodatni overlay za bolju čitljivost teksta */
 .services-section::before {
   content: '';
   position: absolute;
@@ -50,7 +48,6 @@
   pointer-events: none;
 }
 
-/* Osiguraj da se sadržaj prikazuje ispred overlay-a */
 .services-section .container {
   position: relative;
   z-index: 1;
@@ -61,7 +58,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* Dodaj blagi backdrop za bolje čitanje */
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(2px);
   border-radius: 1rem;
@@ -103,7 +99,6 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* link + chevron hover */
 .service-link {
   color: var(--accent-color);
   text-decoration: none;
@@ -132,11 +127,29 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .services-section {
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .about-section {
+    min-height: 50vh;
+    /* Na mobitelima koristimo scroll umjesto fixed */
     background-attachment: scroll;
   }
 
-  .service-card {
-    padding: 1.5rem 1rem;
+  .services-section {
+    background-attachment: scroll;
+    padding: 2rem 0;
+  }
+}
+
+/* Desktop - vraćamo fixed attachment */
+@media (min-width: 769px) {
+  .about-section {
+    background-attachment: fixed;
+  }
+
+  .services-section {
+    background-attachment: fixed;
   }
 }

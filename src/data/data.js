@@ -61,7 +61,7 @@ export const boats = [
     city: 'Split',
     country: 'Croatia',
     price: 500,
-    img: 'https://placehold.co/640x360?text=Boat+1',
+    img: 'https://placehold.co/640x360?text=Boat+5',
     rating: 4.6,
   },
   {
@@ -74,7 +74,7 @@ export const boats = [
     city: 'Split',
     country: 'Croatia',
     price: 630,
-    img: 'https://placehold.co/640x360?text=Boat+2',
+    img: 'https://placehold.co/640x360?text=Boat+6',
     rating: 4.8,
   },
   {
@@ -87,7 +87,7 @@ export const boats = [
     city: 'Split',
     country: 'Croatia',
     price: 675,
-    img: 'https://placehold.co/640x360?text=Boat+3',
+    img: 'https://placehold.co/640x360?text=Boat+7',
     rating: 4.6,
   },
   {
@@ -100,7 +100,7 @@ export const boats = [
     city: 'Split',
     country: 'Croatia',
     price: 675,
-    img: 'https://placehold.co/640x360?text=Boat+4',
+    img: 'https://placehold.co/640x360?text=Boat+8',
     rating: 4.6,
   },
 ];
