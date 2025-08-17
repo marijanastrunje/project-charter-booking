@@ -42,3 +42,10 @@ body {
 .btn-secondary-custom:hover {
   background: var(--secondary-color-hover);
 }
+
+.slick-slide {
+  padding: 0 12px;
+}
+.slick-list {
+  margin: 0 -12px;
+}

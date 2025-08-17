@@ -8,6 +8,7 @@ import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 
 import Home from './pages/Home';
+import BoatDetails from './components/boat/boat-details/BoatDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/boat/:id" element={<BoatDetails />} />
         </Routes>
         <Footer />
       </div>
