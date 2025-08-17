@@ -8,5 +8,10 @@
 }
 
 .navbar {
-  background-color: var(--nav-color);
+  background-color: var(--transparent-primary-color);
+}
+
+.nav-link,
+.navbar-nav .nav-link.active {
+  color: aliceblue;
 }

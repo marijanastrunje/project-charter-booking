@@ -14,7 +14,7 @@ const Header = () => {
       />
 
       {/* Top Bar - kontakt info */}
-      <div className="bg-secondary text-white py-2">
+      <div className="topbar bg-secondary text-white py-2">
         <div className="container">
           <div className="row" itemScope itemType="https://schema.org/Organization">
             <meta itemProp="name" content="YACHTERA" />
@@ -52,10 +52,7 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav
-        className="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top"
-        role="navigation"
-      >
+      <nav className="navbar navbar-expand-lg navbar-light shadow-sm" role="navigation">
         <div className="container">
           {/* Logo/Brand */}
           <a

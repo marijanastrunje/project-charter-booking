@@ -6,7 +6,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-5">
+    <footer className="footer text-light py-5">
       <div className="container">
         <div className="row">
           {/* Logo & Description */}

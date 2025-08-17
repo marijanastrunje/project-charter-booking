@@ -26,7 +26,7 @@ const AboutSection = () => {
                 gravida.
               </p>
 
-              <a href="/read-more" className="btn about-button">
+              <a href="/read-more" className="btn btn-secondary-custom">
                 READ MORE
               </a>
             </div>

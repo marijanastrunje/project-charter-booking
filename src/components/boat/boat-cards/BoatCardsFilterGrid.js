@@ -3,7 +3,8 @@ import { boats } from '../../../data/data';
 import BoatCard from './BoatCard';
 
 const BoatCardsFilterGrid = () => {
-  const [sort, setSort] = useState('price-asc'); // price-asc | price-desc | name-asc
+  const [sort, setSort] = useState('price-asc');
+  const [visibleCount, setVisibleCount] = useState(4); // 👈 start s 4
 
   const sortedBoats = useMemo(() => {
     const list = [...boats];
@@ -43,19 +44,26 @@ const BoatCardsFilterGrid = () => {
         </div>
       </div>
 
-      {/* Grid */}
+      {/* Grid – prikaz samo prvih `visibleCount` */}
       <div className="row g-4">
-        {sortedBoats.map((b) => (
+        {sortedBoats.slice(0, visibleCount).map((b) => (
           <div key={b.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
             <BoatCard boat={b} />
           </div>
         ))}
       </div>
 
-      {/* Load more */}
-      <div className="text-center mt-4">
-        <button className="btn btn-outline-secondary px-4">Load more</button>
-      </div>
+      {/* Load more – pojavi se dok ima još za prikazati */}
+      {visibleCount < sortedBoats.length && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-outline-secondary px-4"
+            onClick={() => setVisibleCount((c) => Math.min(c + 4, sortedBoats.length))}
+          >
+            Load more
+          </button>
+        </div>
+      )}
     </section>
   );
 };

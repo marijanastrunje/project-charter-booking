@@ -1,40 +1,20 @@
-import Slider from 'react-slick';
+// src/components/boat/boat-slider/BoatSlider.js
 import BoatCard from '../boat-cards/BoatCard';
+import ReusableSlider from '../../common/slider/ReusableSlider';
 import { boats as defaultBoats } from '../../../data/data';
 
 const BoatSlider = ({ boats = defaultBoats, loading = false }) => {
-  const settings = {
-    dots: true,
-    arrows: true,
-    infinite: false,
-    speed: 400,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 3, slidesToScroll: 3 } },
-      { breakpoint: 992, settings: { slidesToShow: 2, slidesToScroll: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-    ],
-  };
-
-  if (loading) {
-    return <div className="text-center py-4">Loading…</div>;
-  }
-
-  if (!boats || boats.length === 0) {
-    return <div className="text-center py-4">No boats found.</div>;
-  }
+  // Render funkcija za boat card
+  const renderBoatCard = (boat) => <BoatCard boat={boat} />;
 
   return (
-    <div className="container">
-      <Slider {...settings}>
-        {boats.map((boat) => (
-          <div key={boat.id}>
-            <BoatCard boat={boat} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <ReusableSlider
+      items={boats}
+      loading={loading}
+      renderItem={renderBoatCard}
+      emptyMessage="No boats found."
+      loadingMessage="Loading boats..."
+    />
   );
 };
 
