@@ -5,6 +5,7 @@
   --secondary-color: #1e3a5f;
   --secondary-color-hover: #2c5282;
   --accent-color: #fbbf24;
+  --accent-color-hover: #f2d385;
   --text-dark: #1f2937;
   --text-light: #6b7280;
   --bg-light: #f8fafc;
@@ -26,6 +27,10 @@ body {
 .btn-primary-custom {
   background-color: var(--accent-color);
   border-color: var(--primary-color);
+}
+
+.btn-primary-custom:hover {
+  background: var(--accent-color-hover);
 }
 
 .btn-secondary-custom {
