@@ -1,0 +1,110 @@
+/* brand vars (treba uskladiti s onima u app.css) */
+:root {
+  --brand-dark: #05033d;
+  --brand-primary: #1e3a5f;
+  --brand-primary-hover: #2c5282;
+  --brand-gold: #fbbf24;
+}
+
+/* HERO */
+.about-section {
+  min-height: 60vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2070&q=80')
+      center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.about-subtitle {
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.about-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1;
+}
+
+.about-description {
+  font-size: 1.125rem;
+  max-width: 400px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* gumb */
+.about-button {
+  background: var(--brand-primary);
+  color: #fff;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0.25rem;
+  transition: background 0.2s ease;
+}
+.about-button:hover {
+  background: var(--brand-primary-hover);
+}
+
+/* SERVICES */
+.services-section {
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 3rem 0;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-gold);
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.service-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.service-description {
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+/* link + chevron hover */
+.service-link {
+  color: var(--brand-gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+.service-link:hover {
+  color: #fff;
+}
+
+.service-chevron {
+  transition: transform 0.2s ease;
+}
+.service-link:hover .service-chevron {
+  transform: translateX(5px);
+}

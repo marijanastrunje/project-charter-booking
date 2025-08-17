@@ -1,0 +1,38 @@
+.latest-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.latest-eyebrow::before,
+.latest-eyebrow::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #e3c37a; /* blago zlatna linija */
+  opacity: 0.9;
+}
+
+.article-card img {
+  object-fit: cover;
+  height: 220px; /* stabilna visina slike */
+}
+
+.article-card {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 1.25rem rgba(0, 0, 0, 0.08);
+}
+
+.article-link {
+  color: #e3a93b; /* topla akcent boja */
+  text-decoration: none;
+  font-weight: 600;
+}
+.article-link:hover {
+  text-decoration: underline;
+}

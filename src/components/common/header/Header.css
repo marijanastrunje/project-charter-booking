@@ -1,0 +1,12 @@
+@media screen and (max-width: 991px) {
+  .navbar-nav li a {
+    padding: 15px 20px;
+  }
+  .btn.btn-primary-custom {
+    margin: 5px 10px;
+  }
+}
+
+.navbar {
+  background-color: var(--nav-color);
+}
