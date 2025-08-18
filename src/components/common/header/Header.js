@@ -1,9 +1,47 @@
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faAnchor } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'bootstrap/js/dist/collapse'; // važno: Bootstrap JS
 
 import './Header.css';
 
 const Header = () => {
+  const navRef = useRef(null); // referenca na .navbar-collapse
+  const togglerRef = useRef(null); // referenca na gumb (hamburger)
+
+  // Zatvori nav kad se klikne izvan njega ili pritisne Escape
+  useEffect(() => {
+    const navEl = navRef.current;
+    if (!navEl) return;
+
+    const getCollapse = () => Collapse.getOrCreateInstance(navEl, { toggle: false });
+
+    const onDocClick = (e) => {
+      const isOpen = navEl.classList.contains('show');
+      if (!isOpen) return;
+
+      const clickInsideNav = navEl.contains(e.target);
+      const clickOnToggler = togglerRef.current?.contains(e.target);
+
+      if (!clickInsideNav && !clickOnToggler) {
+        getCollapse().hide();
+      }
+    };
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape' && navEl.classList.contains('show')) {
+        getCollapse().hide();
+      }
+    };
+
+    document.addEventListener('click', onDocClick);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('click', onDocClick);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
   return (
     <header>
       {/* Top Bar - SEO */}
@@ -66,6 +104,7 @@ const Header = () => {
 
           {/* Mobile Toggle Button */}
           <button
+            ref={togglerRef}
             className="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
@@ -78,7 +117,7 @@ const Header = () => {
           </button>
 
           {/* Navigation Links */}
-          <div className="collapse navbar-collapse" id="mainNavigation">
+          <div className="collapse navbar-collapse" id="mainNavigation" ref={navRef}>
             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active fw-semibold" href="/" aria-current="page">
@@ -86,22 +125,22 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about">
+                <a className="nav-link" href="/">
                   ABOUT US
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/services">
+                <a className="nav-link" href="/">
                   SERVICES
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/pages">
+                <a className="nav-link" href="/">
                   PAGES
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/contact">
+                <a className="nav-link" href="/">
                   CONTACT US
                 </a>
               </li>
