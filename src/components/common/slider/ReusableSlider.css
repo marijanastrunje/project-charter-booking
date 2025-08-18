@@ -1,4 +1,3 @@
-button.slick-prev.slick-arrow::before,
-button.slick-next.slick-arrow::before {
-  color: black;
+.custom-swiper {
+  padding-bottom: 40px;
 }

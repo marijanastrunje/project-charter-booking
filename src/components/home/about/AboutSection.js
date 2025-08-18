@@ -4,7 +4,6 @@ import {
   faDharmachakra,
   faChampagneGlasses,
   faCompass,
-  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import './AboutSection.css';
 
@@ -40,7 +39,7 @@ const AboutSection = () => {
           <div className="row g-4">
             {/* 1 */}
             <div className="col-12 col-md-6 col-lg-3">
-              <article className="service-card h-100 text-center">
+              <div className="service-card h-100 text-center">
                 <div className="service-icon mb-3">
                   <FontAwesomeIcon icon={faShip} />
                 </div>
@@ -49,16 +48,12 @@ const AboutSection = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua.
                 </p>
-                <a href="/" className="service-link">
-                  READ MORE
-                  <FontAwesomeIcon icon={faChevronRight} className="ms-2 service-chevron" />
-                </a>
-              </article>
+              </div>
             </div>
 
             {/* 2 */}
             <div className="col-12 col-md-6 col-lg-3">
-              <article className="service-card h-100 text-center">
+              <div className="service-card h-100 text-center">
                 <div className="service-icon mb-3">
                   <FontAwesomeIcon icon={faDharmachakra} />
                 </div>
@@ -67,16 +62,12 @@ const AboutSection = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua.
                 </p>
-                <a href="/" className="service-link">
-                  READ MORE
-                  <FontAwesomeIcon icon={faChevronRight} className="ms-2 service-chevron" />
-                </a>
-              </article>
+              </div>
             </div>
 
             {/* 3 */}
             <div className="col-12 col-md-6 col-lg-3">
-              <article className="service-card h-100 text-center">
+              <div className="service-card h-100 text-center">
                 <div className="service-icon mb-3">
                   <FontAwesomeIcon icon={faChampagneGlasses} />
                 </div>
@@ -85,16 +76,12 @@ const AboutSection = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua.
                 </p>
-                <a href="/" className="service-link">
-                  READ MORE
-                  <FontAwesomeIcon icon={faChevronRight} className="ms-2 service-chevron" />
-                </a>
-              </article>
+              </div>
             </div>
 
             {/* 4 */}
             <div className="col-12 col-md-6 col-lg-3">
-              <article className="service-card h-100 text-center">
+              <div className="service-card h-100 text-center">
                 <div className="service-icon mb-3">
                   <FontAwesomeIcon icon={faCompass} />
                 </div>
@@ -103,11 +90,7 @@ const AboutSection = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua.
                 </p>
-                <a href="/" className="service-link">
-                  READ MORE
-                  <FontAwesomeIcon icon={faChevronRight} className="ms-2 service-chevron" />
-                </a>
-              </article>
+              </div>
             </div>
           </div>
         </div>
