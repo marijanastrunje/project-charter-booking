@@ -10,7 +10,7 @@ import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 
 import Home from './pages/Home';
-import BoatDetails from './components/boat/boat-details/BoatDetails';
+import BoatDetails from './pages/BoatDetails';
 
 function App() {
   return (
