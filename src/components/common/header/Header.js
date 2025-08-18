@@ -1,36 +1,33 @@
 import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faAnchor } from '@fortawesome/free-solid-svg-icons';
-import Collapse from 'bootstrap/js/dist/collapse'; // važno: Bootstrap JS
-
+import Collapse from 'bootstrap/js/dist/collapse';
 import './Header.css';
 
 const Header = () => {
-  const navRef = useRef(null); // referenca na .navbar-collapse
-  const togglerRef = useRef(null); // referenca na gumb (hamburger)
+  const navRef = useRef(null); // .navbar-collapse
+  const togglerRef = useRef(null); // gumb (hamburger)
+  const collapseRef = useRef(null); // Bootstrap Collapse instanca
 
-  // Zatvori nav kad se klikne izvan njega ili pritisne Escape
   useEffect(() => {
     const navEl = navRef.current;
     if (!navEl) return;
 
-    const getCollapse = () => Collapse.getOrCreateInstance(navEl, { toggle: false });
+    // Inicijaliziraj Collapse bez auto-togglea
+    collapseRef.current = Collapse.getOrCreateInstance(navEl, { toggle: false });
 
     const onDocClick = (e) => {
-      const isOpen = navEl.classList.contains('show');
-      if (!isOpen) return;
-
+      if (!navEl.classList.contains('show')) return;
       const clickInsideNav = navEl.contains(e.target);
       const clickOnToggler = togglerRef.current?.contains(e.target);
-
       if (!clickInsideNav && !clickOnToggler) {
-        getCollapse().hide();
+        collapseRef.current?.hide();
       }
     };
 
     const onKeyDown = (e) => {
       if (e.key === 'Escape' && navEl.classList.contains('show')) {
-        getCollapse().hide();
+        collapseRef.current?.hide();
       }
     };
 
@@ -41,6 +38,18 @@ const Header = () => {
       document.removeEventListener('keydown', onKeyDown);
     };
   }, []);
+
+  const handleTogglerClick = () => {
+    collapseRef.current?.toggle(); // garantira otvori/zatvori na svaki klik
+  };
+
+  // (opcionalno) zatvori nakon klika na link u meniju (korisno na mobitelu)
+  const handleNavClick = (e) => {
+    const isLink = e.target.closest('a');
+    if (isLink && navRef.current?.classList.contains('show')) {
+      collapseRef.current?.hide();
+    }
+  };
 
   return (
     <header>
@@ -93,11 +102,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light shadow-sm" role="navigation">
         <div className="container">
           {/* Logo/Brand */}
-          <a
-            className="navbar-brand d-flex align-items-center"
-            href="/"
-            aria-label="NAZIV TVRTKE - Homepage"
-          >
+          <a className="navbar-brand d-flex align-items-center" href="/" aria-label="Homepage">
             <FontAwesomeIcon icon={faAnchor} className="text-primary me-2 fs-4" />
             <span className="fw-bold text-primary fs-4">LOGO</span>
           </a>
@@ -107,17 +112,21 @@ const Header = () => {
             ref={togglerRef}
             className="navbar-toggler border-0"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavigation"
             aria-controls="mainNavigation"
-            aria-expanded="false"
+            aria-expanded={navRef.current?.classList.contains('show') ? 'true' : 'false'}
             aria-label="Toggle navigation menu"
+            onClick={handleTogglerClick}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           {/* Navigation Links */}
-          <div className="collapse navbar-collapse" id="mainNavigation" ref={navRef}>
+          <div
+            className="collapse navbar-collapse"
+            id="mainNavigation"
+            ref={navRef}
+            onClick={handleNavClick}
+          >
             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active fw-semibold" href="/" aria-current="page">

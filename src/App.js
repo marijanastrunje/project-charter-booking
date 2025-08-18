@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
 
 import ErrorBoundary from './components/common/ErrorBoundary';
+import ScrollToTop from './components/common/ScrollToTop';
 
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
@@ -18,6 +19,7 @@ function App() {
       <Router>
         <div className="App">
           <Header />
+          <ScrollToTop />
           <Routes>
             <Route index element={<Home />} />
             <Route path="/boat/:id" element={<BoatDetails />} />

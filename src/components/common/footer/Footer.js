@@ -42,13 +42,13 @@ const Footer = () => {
                     <a href="/">Home</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/about">About us</a>
+                    <a href="/">About us</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/services">Services</a>
+                    <a href="/">Services</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/contact">Contact Us</a>
+                    <a href="/">Contact Us</a>
                   </li>
                 </ul>
               </div>
@@ -58,13 +58,13 @@ const Footer = () => {
                 <h6 className="fw-bold  mb-3">Help</h6>
                 <ul className="list-unstyled">
                   <li className="mb-2">
-                    <a href="/support">Customer Support</a>
+                    <a href="/">Customer Support</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/terms">Terms & Conditions</a>
+                    <a href="/">Terms & Conditions</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/">Privacy Policy</a>
                   </li>
                 </ul>
               </div>
